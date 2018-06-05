@@ -1,0 +1,1 @@
+alert('Este e meu primeiro alert alone');
