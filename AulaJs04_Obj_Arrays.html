@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 04 Objetos e Arrays</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black">
+        Press F12 and go to console - Pressione F12 e vá para o console
+    </h1>
+
+    <script>
+        // Forma dividida de colocar informações compostas
+        var nome = 'Nycolas';
+        var sobrenome = 'Vieira';
+        var idade = 18
+
+        /* Arrays ou vetores - Lista de itens iguais, sem nomes - Itens numéricos */
+        var frutas = ['Abacaxi', 'Melância', 'Maçã'];
+        console.log(frutas);
+        console.log(frutas[0]); // para informar um valor específico, no caso o primeiro
+
+        var pessoa = ['Nycolas', 'Vieira', '18']; // este array não é recomendado, valores diferentes
+        console.log(pessoa);
+
+        /* Object - Itens diferentes, com nomes - Itens em texto */
+        var pessoa = {nome: 'Nycolas', sobrenome: 'Vieira', idade: 18};
+        console.log(pessoa); // chamando todo o Object
+        console.log(pessoa['nome']); // chamando item específico
+        console.log(pessoa.nome); // chamando item específico
+
+        /* Function dentro do object */
+        // var pessoa = {nome: 'Nycolas', sobrenome: 'Vieira', idade: 18, andar: function(){alert('caminhando')}};
+        var pessoa = {
+            nome: 'Nycolas',
+            sobrenome: 'Vieira', 
+            idade: 18, 
+
+            andar: function(){
+                alert('caminhando');
+            }
+        };
+        // console.log(pessoa.andar());
+
+        /* toString - Para transformar em String */
+        console.log(frutas.toString());
+
+        /* Join - Para separar itens por um caracter especial (vírgula, etc.) */
+        console.log(frutas.join(' - '));
+
+        /* Sort - Coloca o array em ordem alfabética */
+        console.log(frutas.sort());
+
+        /* Reverse - Coloca o array em ordem contraria ao que ele está escrito no momento! */
+        console.log(frutas.reverse()); // NÃO É ORDEM DESCRESCENTE!
+
+        /* Length - Para mostrar o tamanho do array */
+        console.log(frutas.length);
+        // frutas[3] = 'Kiwi'
+
+        // .push() = Para adicionar um item no final do array mesmo sem saber seu tamanho
+        frutas.push('Kiwi');
+        console.log(frutas.toString());
+        // .pop() = Remove o último item do array
+        frutas.pop();
+        console.log(frutas.toString());
+        // .shift() = Remove o primeiro item do array
+        frutas.shift();
+        console.log(frutas.toString());
+        // .unshift() = Adiciona um item no começo do array
+        frutas.unshift('Pitanga');
+        console.log(frutas.toString());
+    </script>
+</body>
+</html>
