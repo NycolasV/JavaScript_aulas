@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 02 Variáveis</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black">
+        Press F12 and go to console - Pressione F12 e vá para o console
+    </h1>
+
+    <script>
+    /* Variáveis */
+
+    /* 
+        var idade_aluno = 30; // padrão underscore
+        var IdadeAluno = 30; // padrão camel case 
+        var idadeAluno = 30; // padrão dos desenvolvedores, sem nome, mais usado
+        // alert(idadeAluno);
+    */
+
+    var idade; // variável inicialmente null
+    idade = 30;
+    var idade2 = 40; // instanciar a variável evitando a segunda linha, mais legível e prático
+
+    var nome = 'Teste'; // String usa aspas simples ou duplas 
+    var nome2 = "Teste";
+
+    var casado = true; // para declarar boolean, insira true ou false
+
+    var idade3 = 30, nome3 = 'teste', casado2 = true; // pode colocar na mesma linha, mas fica pouco legível
+
+    console.log(casado2); // ver a informação no console (F12)
+
+    /* Array - Itens são numerados */
+    var formacao = ['HTML', 'CSS', 'JS']; // declarando um array
+    var pessoaArray = [17, 'Nycolas', false] 
+    console.log(formacao); // mostrando o array no console
+    console.log(formacao[0]); // mostrando um array específico
+    console.log(pessoaArray);
+    console.log(pessoaArray[0]);
+
+    /* Objeto - Itens são nomeados */
+    var pessoa = {idade: 17, nome: 'Nycolas', casado: false}; // declarando um objeto
+    console.log(pessoa);
+    console.log(pessoa.nome);
+
+    /* Textos nulos e vazios */
+    var texto = ''; // valor vazio, fica em branco
+    var texto2 = null; // valor nulo, diferente de vazio
+    var texto3; // valor não definido
+
+    var texto4 = 'declarado';
+    var text04 // mesmo redeclarando a variável, ela mantém o valor já inserido
+
+    /* Operadores */
+    var x = 10, yString = '5';
+    console.log(x + yString); // ele faz a concatenação dos dados, pois há uma String
+
+    var x = 10, y = 5, z = 2;
+    console.log(x + y); // operação de soma
+    console.log(x - y); // operação de subtração
+    console.log(x * y); // operação de multiplicação
+    console.log(x / y); // operação de divisão
+
+    x++; // soma 1 ao valor atribuido para a variável
+    console.log(x); 
+    y--; // subtrai 1 ao valor atribuido para a variável
+    console.log(y);
+
+    console.log((x + y) / z); // as mesmas regras matemáticas servem p/ o JS
+    var resultado = (x + y) / z; // declara uma variável com a expressão
+    console.log(resultado); 
+
+    // Operações diretas já atribuindo valor a variável
+    x = 10, x += 5;
+    console.log(x);
+    x = 10, x -= 5;
+    console.log(x);
+    x = 10, x *= 5;
+    console.log(x);
+    x = 10, x /= 5;
+    console.log(x);
+
+    /* Nome de variáveis que não podem ser usadas */
+    // var; function; break; return; continue; (qualquer uma que seja um comando)
+    </script>
+</body>
+</html>
