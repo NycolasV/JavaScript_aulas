@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 05 Objetos e Arrays</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black">
+        Press F12 and go to console - Pressione F12 e vá para o console
+    </h1>
+
+    <script>
+        console.log("-------------------------- Strings ------------------------")
+
+        /* Strings */
+        var txt = 'Texto aleatório para treinar na forma aleatório';
+        console.log(txt);
+
+        // String de aspas simples com texto com o mesmo
+        var txtAspasSimples = 'Pegou fogo na minha caixa d\'água'; // põe barra invertida onde está a aspa simples
+        var txtAspasSimples = "Pegou fogo na minha caixa d'água"; // põe aspas duplas
+        console.log(txtAspasSimples);
+
+        // String de aspas duplas com texto com o mesmo
+        var txtAspasDuplas = "Pegou \"fogo\" na minha caixa d'água"; // põe barra invertida antes das aspas
+        console.log(txtAspasDuplas);
+
+        // Barra invertida no contexto da String(
+        var txtAspasDuplas = "Pegou \"fogo\" na minha \\ caixa d'água"; // põe barra invertida também, p/ mostrar a outra barra
+        console.log(txtAspasDuplas);
+
+        /* Lenght na String - Retorna o tamanho, qntd de caracteres */
+        console.log(txt.length);
+
+        /* indexOf - Mostra a posição inicial em nº em que começa o parâmetro (palavra) passado */
+        console.log(txt.indexOf('aleatório')); // começa do zero, como um array
+
+        /* lastIndexOf - Mostra a aparição final em nº em que começa o parâmetro (palavra) passado */
+        console.log(txt.lastIndexOf('aleatório')); // começa do zero, como um array
+
+        /* Search - Igual ao indexOf tranzendo a posição da primeira ocorrência, mas aceita escritas regulares */
+        console.log(txt.search('aleatório')); // começa do zero, como um array
+
+        /* Slice - Corta a palavra selecionada e mostra apenas ela*/
+        // insere um start e um finish atravéz dos nº, ele não conta o último, 
+        // então tem que adicionar um valor a mais do que deseja inserir
+        console.log(txt.slice(0,5));
+
+        /* Substring - Igual ao slice */
+        console.log(txt.substring(0,5)); // início e fim
+
+        /* Substr - Recorta a palavra no valor inicial e a qntd pedida */
+        console.log(txt.substr(0, 20)); // início e a qntd de caracteres que deve ser mostrado
+        console.log(txt.substr(5)); // se omitir o 2º parametro, ele pega do ponto inicial até o fim da String
+
+        /* Replace - Substitui valores da String */
+        // (valor buscado/novo valor); ele altera apenas a primeira palavra
+        console.log(txt.replace("aleatório", "maçã")); 
+
+        /* toUpperCase - Converte toda a String em letras maiúsculas */
+        console.log(txt.toUpperCase());
+
+        /* toLowerCase - Converte toda a String em letras minúsculas */
+        console.log(txt.toLowerCase());
+
+        console.log("-------------------------- Números ------------------------")
+
+        /* Números */
+        var numero = 30.75;
+        console.log(numero);
+
+        /* Expressões numéricas */
+        var divisao = 10 / 5;
+        console.log(divisao);
+        var multiplicacao = 10 * 5;
+        console.log(multiplicacao);
+        var soma = 10 + 5;
+        console.log(soma);
+        var subtracao = 10 - 5;
+        console.log(subtracao);
+
+        var expressao = (12 + 5) / 2; // segue as regras da matemática comum
+        console.log(expressao);
+
+        /* toFixed - Limita o nº de casas decimais que podem aparecer */
+        console.log(numero.toFixed(1)); // ele arredonda para mais ou menos
+
+        /* toPrecision - Retorna o nº de digitos que deseja que seja mostrada */
+        console.log(numero.toPrecision(2)); // ele também arredonda para mais ou para menos
+
+        /* toString - Converter um número em String */
+        var num = 33.768;
+        var numString = num.toString();
+        console.log(numString);
+    </script>
+</body>
+</html>
