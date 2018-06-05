@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 03 Funções</title>
+</head>
+
+<body>
+    <script>
+        /*
+         * Uma função é um bloco de códigos que executa uma determinada tarefa
+         * A função reutiliza o código, evita repetição
+         * É vantajoso usar apenas um código por função, evitar vários códigos em uma função
+         */
+        //  function alerta(){
+        //      alert('Olá mundo!');
+        //  }
+        //  alerta(); // invocação da função, ela não funciona se não for chamada
+
+         /* Parâmetros na função */
+         function alerta(mensagem){ 
+             alert(mensagem);
+         }
+        //  alerta('Essa é a mensagem de alerta'); // com parâmetros, pode personalizar
+
+         function metade(num){ 
+             return num / 2; // a função com return executa e retorna um valor, sem return ele só executa
+         }
+        //  alerta('A metade de 15 é: ' + metade(15));
+
+        // Caso esquecer de informar um parâmetro, pode inserir um valor padrão já na function
+         function dividr(num, por = 2){  
+             return num / por;
+         }
+        //  alerta('O resultado da divisão é: ' + dividr(15, 3)); // OBS.: NAN = Not A Number
+
+         /* Variável global e local */
+         // Variáveis locais são as já mostradas, só funcionam na function em que estão atribuídas
+         var msg = 'Msg padrão' // uma variável global, pode ser usada em qualquer função
+         function alertaPadrao(){
+             alert(msg);
+         }
+        //  alertaPadrao();
+
+        // Uma variável padrão só irá funcionar dentro da function
+        function alertaParametro(mensagem){
+        }
+        alertaParametro('Msg via parâmetro');
+
+        // Uma variável global pode ser informado dentro da function
+        function alertaLocal(mensagem){
+            msgLocal = mensagem;
+        }
+        alertaLocal('Msg global dentro da function'); // chamada da function
+        alert(msgLocal); // chamada da variável global, não funciona se a function não for chamada antes
+    </script>
+</body>
+</html>
