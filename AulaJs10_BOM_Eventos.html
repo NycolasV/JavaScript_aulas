@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 10 BOM e Eventos</title>
+    <!--<style>
+        .zebrada{background: silver;}
+    </style>-->
+</head>
+
+<body> 
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black" >
+        Press F12 and go to console - Aperte F12 e vá ao console
+    </h1>
+
+    <!--<input type="button" value="Avancar" onclick="window.history.forward();">
+    <input type="button" value="Voltar" onclick="window.history.back();">-->
+
+    <div id="msg">
+
+    </div>
+
+    <input type="button" value="Cancelar" onclick="clearTimeout(msg)">
+    <input type="button" value="Cancelar foco" onclick="clearTimeout(intervalo)">
+
+    <!--<table class="zebra">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <th>Ricardo</th>
+                <th>0xx00 0000-0000</th>
+            </tr>
+            <tr>
+                <th>José</th>
+                <th>0xx00 0000-0000</th>
+            </tr>
+            <tr>
+                <th>Maria</th>
+                <th>0xx00 0000-0000</th>
+            </tr>
+            <tr>
+                <th>Gabriel</th>
+                <th>0xx00 0000-0000</th>
+            </tr>
+            <tr>
+                <th>João</th>
+                <th>0xx00 0000-0000</th>
+            </tr>  
+            <tr>
+                <th>Ana</th>
+                <th>0xx00 0000-0000</th>
+            </tr>
+        </tbody>
+    </table>-->
+
+    <script>
+        /* BOM - Browser Object Model
+         * O objeto window fica em cima do objeto document na hierarquia do js
+         * DOM manipula apenas o documento (HTML)
+         * BOM manipula a janela inteira (atualizar, abrir e fechar, manipula o navegador)
+         * O document está dentro do window, logo document é descendente do window
+         */
+        //  console.log(document);
+        //  console.log(window);
+
+         // Executa o código quando a janela for carregada
+         // function para zebrar a table
+         window.onload = function(){
+             // todas as tr de um tbody com classe zebra
+             var zebrar = document.querySelectorAll('.zebra tbody tr'); 
+
+             // i += 2 para pular uma linha antes de zebrar (linha sim, linha não)
+             for (var i = 0; i < zebrar.length; i += 2){
+                zebrar[i].className = 'zebrada';
+             }
+         }
+
+         // O href retorna a url do documento
+        console.log(window.location.href);
+
+        // Retorna ou avança no histórico do navegador
+        window.history.back();
+        window.history.forward();
+
+        // Para guardar algo no navegador do usuário (chave, valor) 
+        // Set - inserir / Get - pegar
+        // window.localStorage.setItem('nome', 'Nycolas');
+        // document.getElementById('msg').innerHTML = window.localStorage.getItem('nome');
+
+        // Para guardar na máquina do usuário apenas durante aquela sessão (até o navegador salvar)
+        // window.sessionStorage.setItem('nome2', 'Sessão');
+        // document.getElementById('msg').innerHTML = window.sessionStorage.getItem('nome2');
+
+        // Serve para abrir uma janela (URL - Nome da janela - Parâmetros adicionais ex.: css)
+        // Não é mais usado prq os navegadores bloqueiam o open(); mais usado em sistemas locais
+        // Pode ser armazenado em uma variável
+        // var janela = window.open('', '', 'width=500, height=400');
+        // document.write('Isso é um texto sem janela'); // escreve no documento inicial
+        // janela.document.write('Isso é um texto para a minha janela pop-up'); // escreve na janela que foi aberta
+        // // escreve na janela principal, pode ser usado para definir qual página irá ser a principal
+        // janela.opener.document.write('Isso é um texto para a minha janela pop-up, porém escrito na janela principal'); 
+
+        // Serve para definir uma função que será executada depois de um determinado tempo
+        // function que será executada, quantos milissegundos que o navegador deve esperar para executar 
+        // setTimeout(function(){console.log('Mensagem via timeout')}, 2000);
+        // var msg = setTimeout(msgTimeOut, 2000);
+        // function msgTimeOut(){
+        //     console.log('Mensagem via timeout');
+        // }
+
+        // Armazenando numa variável para usar a clearTimeout no button
+        // Ele cancela a setTimeOut
+        // <input type="button" value="Cancelar" onclick="clearTimeout(msg)">
+        
+        // Ele executa a função a cada período de tempo definido
+        // Ao invés de executar uma vez (como o setTimeOut), ele é continuo  
+        // Tambem pode ser cancelado pelo clearTimeout, mas o correto é utilizar o clearInterval
+        // var msg = setInterval(msgInterval, 1000);
+        // function msgInterval(){
+        //     console.log('Mensagem via interval');
+        // }
+
+        // Para enviar uma mensagem no document após um período
+        // var msg = setTimeout(msgTimeOut, 2000);
+        // function msgTimeOut(){
+        //     document.getElementById('msg').innerHTML = 'Obrigado por visitar minha página';
+        // }
+
+        // Para verificar se o usuário está mexendo na página
+        var intervalo = setInterval(verificaFoco, 200);
+        var contador = 0; // contador
+        function verificaFoco(){
+            if(document.hasFocus()){
+                contador++;
+                console.log(contador);
+
+                if(contador >= 10){
+                    msgTimeOut();
+                    clearInterval(intervalo);
+                }
+            }
+        }
+
+        function msgTimeOut(){
+            document.getElementById('msg').innerHTML = 'Foco na minha página';
+        }
+    </script>
+</body>
+</html>
