@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 06 Data e hora</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black">
+        Press F12 and go to console - Pressione F12 e vá para o console
+    </h1>
+
+    <script>
+        /* Date */
+        // Não precisa de toString, JS já mostra o Date como texto
+        // dia da semana - mês - dia do mês - ano - hora:minuto:segundo - fuso horário
+        // console.log(Date());
+        var d = new Date();
+
+        // milissegundos começando de 1 de janeiro de 1970 = 86400000 milissegundos - Data de partida
+        // var d = new Date(86400000); // milissegundos
+        
+        // informando uma data específica - String
+        // var d = new Date("Wed May 30 2018 22:41:33 GMT-0300 (Hora oficial do Brasil)");
+
+        // informando uma data específica por parâmetros
+        // var d = new Date (ano, mês, dia, hora, minuto, segundo, milissegundos);
+
+        console.log(d);
+
+        /* toUTCString - Dia da semana - mês - dia do mês - ano - hora:minuto:segundo - GMT */
+        console.log(d.toUTCString());
+
+        /* toDateString - Dia da semana - mês - dia do mês - ano */
+        console.log(d.toDateString());
+
+        /* Getters e Setters da data */
+        console.log(d.getDate()); // getDate - pega o dia do mês da data (entre o dia 01 e 31)
+
+        console.log(d.getDay()); // getDay - pega o dia da semana começando no domingo e mostra em nº
+
+        console.log(d.getFullYear()); // getFullyear - pega o ano com quatro dígitos
+
+        console.log(d.getHours()); // getHours - pega a hora entre 00 e 23
+
+        console.log(d.getMilliseconds()); // getMilliseconds - pega o milissegundos deste momento
+
+        console.log(d.getMinutes()); // getMinutes - pega os minutos do 00 até 59
+
+        console.log(d.getMonth()); // getMonth - pega o mês entre 0 e 11 começando de Janeiro 
+
+        console.log(d.getSeconds()) // getSeconds - pega os segundos
+
+        console.log(d.getTime()) // getTime - pega os milissegundos a partir do momento zero (1/1/1970)
+
+        // para setar, so inserir na variável a partir do set seguindo os gets
+        d.setDate(17);
+        console.log(d);
+
+        /* Função para formatar a data - dia/mês/ano */
+        // Se não houver uma data inserida, ele pega o valor da data atual (new Date())
+        function formataData(data = new Date()){
+            var dia = data.getDate();
+            var mes = data.getMonth() + 1; // para exibir na forma correta, adiciona 1 pois inicia do 0
+            var ano = data.getFullYear();
+
+            // caso tenha apenas um número (entre 1 e 9), adiciona o 0 na frente dele
+            if(dia.toString().length == 1) dia = '0' + dia;
+            if(mes.toString().length == 1) mes = '0' + mes;
+
+            return dia +'/'+ mes +'/'+ ano;
+        }
+
+        console.log(formataData());
+    </script>
+</body>
+</html>
