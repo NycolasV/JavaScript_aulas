@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 08 Tratamento de exceções</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black">
+        Informe um número entre 10 e 20:
+    </h1>
+    <input type="text" id="numero">
+    <button onclick="verifica()">Verificar</button>
+    <p id="msg"></p>
+
+    <script>
+        /* TRY_CATCH - Tratamento de exceções */
+        // try{
+        //     aalert('Teste')
+        // } catch(erro){
+        //     alert('Erro: ' + erro);
+        // }
+
+        // Erro personalizado - Coloca um if para identificar um erro na variável
+        var x = 5;
+        
+        // try{
+        //     if(x < 10) throw 'O valor de x precisa ser maior que 10';
+        //     alert('Teste')
+        // }  catch(erro){
+        //     alert('Erro: ' + erro);
+        // }
+
+        // Verificando o número informado pelo usuário
+        function verifica(){
+            // insere o elemento informado no input na variável
+            var x = document.getElementById('numero').value;
+
+            try{
+                // caso x estiver vazio, envia o erro
+                if(x == '') throw 'Informe um valor';
+                // caso não for um número (isNanN - is not a number, nativo do JS), envia o erro
+                if(isNaN(x)) throw 'Informe um número';
+                // forçando o x a trabalhar como um número
+                x = Number(x);
+                // caso o número informado não esteja entre 10 e 20
+                if(x < 10 || x > 20) throw 'Valor informado não está entre 10 e 20';
+
+                // se não houver erros, insere a mensagem de sucesso
+                document.getElementById('msg').innerHTML = 'Perfeito! Você digitou: ' + x;
+            } catch(erro){
+                // envia o erro no campo msg através do innerHTML
+                document.getElementById('msg').innerHTML = 'Erro: ' + erro;
+            } finally{
+                // depois da function ser rodada, ele limpa o input (insere um campo vazio)
+                document.getElementById('numero').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
