@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula Js - 09 DOM e Eventos</title>
+</head>
+<!-- Utilizado para carregar o script após a página ser carregada -->
+<body onload="alerta()"> 
+    <h1 style="text-align: center; font-weight: bold; font-size: 30dp; color: black" >
+        Press F12 and go to console - Aperte F12 e vá ao console
+    </h1>
+
+    <!-- Quando alterar o select, ele executa a função ou código js -->
+    <select name="" id="seletor" onchange="on_change()">
+        <option value="opcao1">Opção 1</option>
+        <option value="opcao2">Opção 2</option>
+        <option value="opcao3">Opção 3</option>
+    </select>
+    <input type="text" onchange="on_change()">
+
+    <!-- Foca o cursor no elemento e continua ativado -->
+    <input type="text" onfocus="on_focus()">
+
+    <!-- Escrevendo o script direto na tag, inserindo um innerHTML quando o h2 for clicado -->
+    <h2 onclick="this.innerHTML = 'Obrigado direto'">Clique aqui</h2>
+
+    <!-- Passando a function ao clicar no h2 -->
+    <h2 onclick="funcao(this)">Clique aqui</h2>
+
+    <!-- Passando o evento através do id evitando ter que passar o parâmetro -->
+    <h2 id="teste">Clique aqui</h2>
+
+    <!-- Quando o mouse passar por cima (over) muda o texto, ao tirá-lo (out) ele muda denovo -->
+    <!-- Quando solta o botão (up) e clica com o mouse, mas não solta, quando pressiona (down) -->
+    <h2 id="mouse" onmouseover="mouse_over(this)" onmouseout="mouse_out(this)"
+        onmouseup="mouse_up(this)" onmousedown="mouse_down(this)">
+        Passe o mouse aqui
+    </h2>
+
+    <p id="demo"></p>
+    <p class="exemplo"></p>
+    <p class="exemplo"></p>
+    <p class="exemplo"></p>
+    <div class="exemplo"></div>
+
+    <img id="imagem" src="imagem.jpg" alt="Imagem não existe">
+
+    <script>
+        /* DOM - Document Object Model */
+        // Quando uma página é carregada o browser cria o DOM que permite 
+        // ao programador selecionar, alterar, adicionar ou deletar elementos HTML
+
+        // document - objeto principal permite executar o objeto de qualquer outro objeto
+        // Objeto principal - Método - Propriedade - Valor da propriedade
+        // getElementById - método que insere uma propriedade baseada no id dela (so pode um)
+        document.getElementById('demo').innerHTML = 'Texto do meu parágrafo';
+
+        // getElementsByTagName - Vai retornar um array com todas as tags do parâmetro passado
+        console.log(document.getElementsByTagName('p'));
+
+        // getElementsByTagName - Vai retornar um array com todas as tags que possuem a classe pedida
+        console.log(document.getElementsByClassName('exemplo'));
+
+        // Como ele retorna um array, para inserir um texto nele é necessário uma variável como array
+        var x = document.getElementsByClassName('exemplo');
+        x[0].innerHTML = 'Texto 0';
+        x[1].innerHTML = 'Texto 1';
+        x[2].innerHTML = 'Texto 2';
+
+        // Também vai retornar um array como o ClassName, mas ele possui o objeto e a classe
+        // evitando de chamar todos os objetos com aquela classe
+        var x = document.querySelectorAll('p.exemplo');
+        console.log(x);
+
+        // Para alterar a tag de uma imagem (.atributo = 'elemento desejado')
+        document.getElementById('imagem').src = 'foto.jpg';
+        document.getElementById('imagem').alt = 'Mudei a tag alt';
+        
+        // Alterando o css da página (Doc na internet - JavaScript style reference)    
+        document.getElementById('demo').style.color = 'red';
+
+        // baseURI - retorna a url absoluta
+        document.baseURI
+
+        // body - retorna o que tem no body
+        document.body.style.backgroundColor = 'orange';
+
+        // doctype - retorna tudo o que tem no doctype
+        document.doctype
+
+        // documentURI - retorna a url do documento específico
+        document.documentURI
+
+        // domain - retorna o domínio
+        document.domain
+
+        // head - retorna o que esta na tag head  
+        document.head
+
+        // inputEncoding - retorna o charset
+        document.inputEncoding
+
+        // lastModified - retorna a última modificação
+        document.lastModified
+
+        // title - retorna o que esta no título
+        document.title
+
+        // URL - retorna a url do documento
+        document.URL
+
+        // forms - retorna todos os formulários
+        document.forms
+
+        // links - retorna todos os links da página  
+        document.links
+
+        // images - retorna todas as imagens
+        document.images
+
+        // scripts - retorna todas as tags scripts
+        document.scripts
+
+        // write - escreve no próprio documento
+        document.write('Isso é um teste');
+
+        // function para alterar o texto do h2 ao ser clicado
+        function funcao(elemento){
+            elemento.innerHTML = 'Obrigado por function';
+        }
+        // function para alterar o texto do h2 sem passar parâmetros e passando onclick pelo id
+        function funcao_id(){
+            document.getElementById('teste').innerHTML = 'Obrigado sem parâmetros';
+        }
+        document.getElementById('teste').onclick = funcao_id;
+
+        // function alerta(){
+        //     alert('Página');
+        // }
+
+        // function on_change(){
+        //     alert('Mudou alguma coisa');
+        // }
+
+        // function on_focus(){
+        //     alert('Usou o on_focus');
+        // }
+
+        function mouse_over(elemento){
+            document.getElementById('mouse').innerHTML = 'Ok, mouse sobre o texto';
+        }
+
+        function mouse_out(elemento){
+            document.getElementById('mouse').innerHTML = 'Passou, passa denovo';
+        }
+
+        function mouse_up(elemento){
+            document.getElementById('mouse').innerHTML = 'Assim que soltou';
+        }
+
+        function mouse_down(elemento){
+            document.getElementById('mouse').innerHTML = 'Segurou o botão';
+        }
+
+        /* 
+         * onclick / onload / onchange / onmouseover / onmouseout
+         * onfocus / onmousedown / onmouseup
+         */
+    </script>
+</body>
+</html>
